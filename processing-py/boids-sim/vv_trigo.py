@@ -37,16 +37,11 @@ class Vector2d:
             return Vector2d(x, y)
 
     def subtract(self=None, vec1=None, vec2=None):
-        print("------------------------")
-        print("subtract()")
-        print("vec2: {}".format(vec2))
         if vec2 is None and self is not None:
-            print("Instance!")
             self.x -= vec1.x
             self.y -= vec1.y
         # static
         else:
-            print("Static!")
             x = vec1.x - vec2.x
             y = vec1.y - vec2.y
             return Vector2d(x, y)

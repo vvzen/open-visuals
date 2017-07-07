@@ -47,27 +47,18 @@ class Boid:
 
     # used to apply forces to boids
     def apply_force(self, force):
-        # print("------------------------")
-        #print("apply_force(), force class: " + force.__class__.__name__)
-        # since f = ma, a = f/m, in this case we're multiplying for the inverse
+        # since f = ma, a = f/m
         tmp_force = Vector2d(force.x, force.y)
-        tmp_force.mult(1 / self.mass)
-        #tmp_force = force / self.mass
+        tmp_force.div(self.mass)
         self.acc.add(force)
 
     # steering behaviours
     def arrive(self, target):
-        # print("------------------------")
-        #print("arrive(), target class: " + target.__class__.__name__)
-        #print("arrive(), self.pos class: " + self.pos.__class__.__name__)
-        #print("self pos: {0}, {1}".format(self.pos.x, self.pos.y))
 
         desired = Vector2d.subtract(vec1=target, vec2=self.pos)
-
-        #print("desired class: " + desired.__class__.__name__)
-        # print(desired)
         distance = desired.get_mag()
-        # smooth arrive at the target
+
+        # Smooth arrive at the target --
         # If the boid is within a certain distance form the target,
         # set the magnitude based on the distance from the target
         # If distance = 100 then mag is maxSpeed
