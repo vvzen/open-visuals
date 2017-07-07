@@ -81,7 +81,7 @@ class Boid:
             steering_force.mult(self.max_steer)
         self.apply_force(steering_force)
 
-    # graphics
+    # GRAPHICS
 
     def render(self):
         ellipse(self.pos.x, self.pos.y, self.size, self.size)
