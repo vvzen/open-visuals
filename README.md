@@ -1,4 +1,4 @@
-##Open Visuals
+## Open Visuals
 <br/>
 
 This is a repo for all of my code with creative intents; mostly *P5js*, *Processing*, *Openframeworks*.
