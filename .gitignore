@@ -5,5 +5,8 @@
 [Tt]humbs.db
 *.DS_Store
 
+# exported point cloud 
+*.ply
+
 # final apps
 *.app
