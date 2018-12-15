@@ -41,6 +41,9 @@ build/
 *.out
 *.app
 
+# Images
+*.png
+
 # python
 *.pyc
 
