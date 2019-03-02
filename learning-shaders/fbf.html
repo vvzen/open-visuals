@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FBF | Intranet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+				color: #ffffff;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+				font-weight: bold;
+
+				background-color: #000000;
+				margin: 0px;
+				overflow: hidden;
+			}
+
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			}
+
+			a { color: #ffffff; }
+
+		</style>
+</head>
+
+<body>
+
+    <div id="container"></div>
+    <!-- <div id="info"><a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - shader demo. featuring <a href="http://www.pouet.net/prod.php?which=52761" target="_blank" rel="noopener">Monjori by Mic</a></div> -->
+
+    <script src="src/js/three.min.js"></script>
+    <script src="src/js/OrbitControls.js"></script>
+    <script src="src/js/SubdivisionModifier.js"></script>
+    <script src="src/js/WebGL.js"></script>
+    <script src="src/js/dat.gui.min.js" type="text/javascript"></script>
+
+    <script id="vertexShader" type="x-shader/x-vertex">
+
+        varying vec2 vUv;
+
+        vec2 texcoord;
+        vec2 varyingtexcoord;
+        
+        uniform float time;
+        uniform float x_frequency;
+        uniform float y_frequency;
+        uniform float displacement;
+
+        float map(float value,float inputMin,float inputMax,float outputMin,float outputMax){
+    
+            float outVal=((value-inputMin)/(inputMax-inputMin)*(outputMax-outputMin)+outputMin);
+            
+            if(outputMax<outputMin){
+                if(outVal<outputMax)outVal=outputMax;
+                else if(outVal>outputMin)outVal=outputMin;
+            }
+            else{
+                if(outVal>outputMax)outVal=outputMax;
+                else if(outVal<outputMin)outVal=outputMin;
+            }
+            return outVal;
+        }
+
+
+        void main()	{
+
+            vUv = uv;
+            
+            // here we move the texture coordinates
+            varyingtexcoord=vec2(texcoord.x,texcoord.y);
+
+            //float x_frequency = 4.25;
+            //float y_frequency = 1.5;
+
+            float displacement_height = map(uv.x, 0.0, 0.5, 0.0, displacement);
+
+            float y_offset=sin(time+position.x*y_frequency)*displacement_height;
+            float z_offset=sin(time+position.x*x_frequency)*displacement_height;
+            
+            vec3 modified_position = position;
+            modified_position.y += y_offset;
+            modified_position.z += z_offset;
+
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(modified_position, 1.0);
+
+        }
+
+		</script>
+
+    <script src="flag.js" type="text/javascript"></script>
+
+</body>
+
+</html>
