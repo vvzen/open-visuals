@@ -134,7 +134,9 @@ function init() {
     // scene.add(pointLight);
     // scene.add(directionalLight);
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({
+        antialias: true
+    });
     renderer.setPixelRatio(window.devicePixelRatio);
     container.appendChild(renderer.domElement);
 
