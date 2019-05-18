@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FBF | Intranet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            color: #ffffff;
+            font-family: Monospace;
+            font-size: 13px;
+            text-align: center;
+            font-weight: bold;
+
+            background-color: #000000;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        #info {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            padding: 5px;
+        }
+
+        a {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Here goes the threejs scene -->
+    <div>Sketch of 17/05/2019</div>
+    <div id="container"></div>
+
+    <!-- THREEjs modules -->
+    <script src="src/js/three.min.js"></script>
+    <script src="src/js/OrbitControls.js"></script>
+    <script src="src/js/SubdivisionModifier.js"></script>
+    <script src="src/js/WebGL.js"></script>
+    <script src="src/js/dat.gui.min.js" type="text/javascript"></script>
+
+    <!-- Custom modules -->
+    <script src="walker.js" type="text/javascript"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+
+</body>
+
+</html>
