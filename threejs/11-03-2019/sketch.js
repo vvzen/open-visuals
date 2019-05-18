@@ -1,3 +1,7 @@
+//----------------- TITLE -----------------
+//             Social Pressure
+//-----------------------------------------
+
 const currentId = 1002;
 const NUM_AGENTS = 64;
 
