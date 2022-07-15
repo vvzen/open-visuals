@@ -49,6 +49,7 @@ const ySize = 3;
 const numColumns = xSize + 1;
 
 let oldIndex = 8;
+// Subdivide the grid 4 times
 const newSub = 4;
 
 let xy = XYFromIndex(oldIndex, numColumns);
