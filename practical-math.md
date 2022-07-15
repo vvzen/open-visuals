@@ -10,7 +10,7 @@ I write them in either pseudo code, python or p5js or whatever it's easier and m
 # Find a polynomial that describes these data points
 from numpy.polynomial import Polynomial
 
-# The degree of the polynomial
+# The degree of the resulting polynomial
 degree = 4
 
 x = np.array([0, 1, 2, 3, 4,  5,  6,  7,  8,  9, 10, 11, 12])
