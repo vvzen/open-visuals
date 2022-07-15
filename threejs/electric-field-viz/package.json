@@ -1,0 +1,16 @@
+{
+  "name": "electric-field-viz",
+  "version": "1.0.0",
+  "description": "Visualization of the electric field",
+  "main": "main.js",
+  "scripts": {
+    "watch": "webpack --watch",
+    "build": "webpack "
+  },
+  "author": "vvzen",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.131.3",
+    "webpack-cli": "^4.8.0"
+  }
+}
